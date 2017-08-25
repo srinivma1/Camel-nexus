@@ -41,32 +41,16 @@
     </licenses>
 
     <repositories>
-       <repository>
-            <id>redhat-ga-repository</id>
-            <url>https://maven.repository.redhat.com/ga</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>redhat-ea-repository</id>
-            <url>https://maven.repository.redhat.com/earlyaccess/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <repository>
+      <id>sample-snapshots</id>
+      <url>http://localhost:8081/nexus/content/repositories/</url>
+    </repository>
+  </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>redhat-ga-repository</id>
-            <url>https://maven.repository.redhat.com/ga</url>
+            <id>maven-group1</id>
+            <url>http://localhost:8081/nexus/content/repositories/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -74,16 +58,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
-        <pluginRepository>
-            <id>redhat-ea-repository</id>
-            <url>https://maven.repository.redhat.com/earlyaccess/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
+        
     </pluginRepositories>
 
     <properties>
@@ -96,8 +71,8 @@
     <fabric.version>1.2.0.redhat-630187</fabric.version>
 
     <!-- fabric8 deploy profile configuration -->
-    <fabric8.profile>quickstarts-beginner-camel.log</fabric8.profile>
-    <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
+    <!-- <fabric8.profile>quickstarts-beginner-camel.log</fabric8.profile>
+    <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles> -->
     <fabric8.features></fabric8.features>
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
@@ -145,4 +120,14 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>sample-snapshots3</id>
+      <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/nexus/content/repositories/releases</url>
+    </repository>
+  </distributionManagement>
 </project>
